@@ -11,8 +11,18 @@ function App() {
   const [tasks, setTasks] = useState(data);
   const [newTask, setNewTask] = useState("");
   function handleClick(event) {
-    var NewID = tasks.map(item => item.id).reduce((acc, item) => Math.max(acc, item)) + 1;
+    // var NewID = 0;
+    // for (var index in tasks) {
+    //   if (NewID < tasks[index].id) NewID = tasks[index].id;
+    // }
+    // NewID = NewID +1;
     // var NewID = Math.max.apply(0,tasks.map(item=>item.id)) + 1;
+
+    // var NewID = tasks.map(item => item.id).reduce((acc, item) => Math.max(acc, item)) + 1;
+    var NewID = 1 + tasks.map(item => item.id).reduce((acc, item) => Math.max(acc, item),0) || 0;
+    //console.log("NewID = " + NewID )
+
+
     setTasks([...tasks, { id: NewID, name: newTask }]);
   }
   function handleDeleteTask(TaskID) {
