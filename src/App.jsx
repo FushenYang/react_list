@@ -19,19 +19,22 @@ function App() {
     // var NewID = Math.max.apply(0,tasks.map(item=>item.id)) + 1;
 
     // var NewID = tasks.map(item => item.id).reduce((acc, item) => Math.max(acc, item)) + 1;
-    var NewID = 1 + tasks.map(item => item.id).reduce((acc, item) => Math.max(acc, item),0) || 0;
+    var NewID = 1 + tasks.map(item => item.id).reduce((acc, item) => Math.max(acc, item), 0) || 0;
     //console.log("NewID = " + NewID )
 
 
     setTasks([...tasks, { id: NewID, name: newTask }]);
+    //提交后清除输入框内容
+    setNewTask("");[]
+
   }
   function handleDeleteTask(TaskID) {
     setTasks(tasks.filter(e => e.id != TaskID));
   }
 
-  useEffect(() => {
-    setNewTask("");
-  }, [tasks])
+  // useEffect(() => {
+  //   setNewTask("");
+  // }, [tasks])
 
   return (<>
     <div>
