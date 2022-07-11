@@ -23,14 +23,17 @@ function App() {
 
 
     setTasks([...tasks, { id: NewID, name: newTask }]);
+    //提交后清除输入框内容
+    setNewTask("");[]
+
   }
   function handleDeleteTask(TaskID) {
     setTasks(tasks.filter(e => e.id != TaskID));
   }
 
-  useEffect(() => {
-    setNewTask("");
-  }, [tasks])
+  // useEffect(() => {
+  //   setNewTask("");
+  // }, [tasks])
 
   return (<>
     <div>
